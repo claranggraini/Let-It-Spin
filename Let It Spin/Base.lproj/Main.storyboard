@@ -1,24 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FTn-g1-78M">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Play Spinner-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlaySpinnerController" customModule="Let_It_Spin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Board" translatesAutoresizingMaskIntoConstraints="NO" id="oVc-Mq-MHk">
+                                <rect key="frame" x="30" y="55" width="330" height="150"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIU-jf-pXr">
+                                <rect key="frame" x="46" y="67" width="298" height="126"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-Tf-icH">
+                                        <rect key="frame" x="88.333333333333343" y="34.333333333333343" width="121.33333333333334" height="57.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Cream"/>
+                                <constraints>
+                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="centerX" secondItem="qIU-jf-pXr" secondAttribute="centerX" id="WfJ-R4-9on"/>
+                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="centerY" secondItem="qIU-jf-pXr" secondAttribute="centerY" id="aV9-hl-m8p"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chirstmas Tree" translatesAutoresizingMaskIntoConstraints="NO" id="bVQ-e7-lBm">
+                                <rect key="frame" x="49" y="250" width="296" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="bFj-BC-mn3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-cx-hTf">
+                                <rect key="frame" x="80" y="596" width="230" height="70"/>
+                                <color key="backgroundColor" name="Red"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <color key="tintColor" name="Cream"/>
+                                <state key="normal" title="Spin!">
+                                    <color key="titleColor" name="Cream"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="Green"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qIU-jf-pXr" secondAttribute="trailing" constant="46" id="6QZ-Ul-LkK"/>
+                            <constraint firstItem="xMJ-cx-hTf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="E78-1N-66j"/>
+                            <constraint firstItem="qIU-jf-pXr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="H78-YO-obm"/>
+                            <constraint firstItem="bVQ-e7-lBm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="N3U-u6-uP8"/>
+                            <constraint firstItem="qIU-jf-pXr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="RdT-If-MB8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oVc-Mq-MHk" secondAttribute="trailing" constant="30" id="Zwd-Li-yiY"/>
+                            <constraint firstItem="bVQ-e7-lBm" firstAttribute="top" secondItem="oVc-Mq-MHk" secondAttribute="bottom" constant="45" id="cha-RL-L6O"/>
+                            <constraint firstItem="xMJ-cx-hTf" firstAttribute="top" secondItem="bVQ-e7-lBm" secondAttribute="bottom" constant="46" id="ka4-7B-RJg"/>
+                            <constraint firstItem="bVQ-e7-lBm" firstAttribute="top" secondItem="qIU-jf-pXr" secondAttribute="bottom" constant="57" id="lL0-ML-ZSk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bVQ-e7-lBm" secondAttribute="trailing" constant="45" id="qw2-Lp-EjS"/>
+                            <constraint firstItem="oVc-Mq-MHk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="sKw-T7-MZR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xMJ-cx-hTf" secondAttribute="trailing" constant="80" id="umf-e3-UuG"/>
+                            <constraint firstItem="oVc-Mq-MHk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="uvo-Wo-eZc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oVc-Mq-MHk" secondAttribute="bottom" constant="517" id="vCg-Gn-q55"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Play Spinner" id="4bx-YK-kNt"/>
+                    <connections>
+                        <outlet property="boardIV" destination="oVc-Mq-MHk" id="o8M-78-LwM"/>
+                        <outlet property="boardLbl" destination="oCh-Tf-icH" id="tgd-GM-kX5"/>
+                        <outlet property="mainSpinnerIV" destination="bVQ-e7-lBm" id="rsT-Vu-DPr"/>
+                        <outlet property="spinBtn" destination="xMJ-cx-hTf" id="Stp-Yn-xTr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="949.23076923076917" y="93.838862559241704"/>
+        </scene>
+        <!--Spinner Controller-->
+        <scene sceneID="mmd-3b-Yhi">
+            <objects>
+                <viewController id="KDR-R5-pHt" customClass="SpinnerController" customModule="Let_It_Spin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XxA-ul-UZg">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QTx-3F-aqQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rt3-SD-fOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035" y="94"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LM1-LH-Sdp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FTn-g1-78M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ihp-en-Wgn">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Green"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Cream"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NBM-LD-9FC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmz-9w-XWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="93.838862559241704"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Board" width="387" height="203"/>
+        <image name="Chirstmas Tree" width="442" height="512"/>
+        <namedColor name="Cream">
+            <color red="0.98799997568130493" green="0.85100001096725464" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.27500000596046448" green="0.41999998688697815" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="0.66299998760223389" green="0.10199999809265137" blue="0.13699999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
