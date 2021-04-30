@@ -19,24 +19,40 @@ class PlaySpinnerController: UIViewController {
     @IBAction func spinBtnOnClicked(_ sender: Any) {
         spinBtn.alpha = 0.5
         spinBtn.isEnabled = false
-        var displayLink = CADisplayLink(target: self, selector: #selector(stopSpin))
+        let displayLink = CADisplayLink(target: self, selector: #selector(stopSpin))
         displayLink.add(to: .main, forMode: .common)
         startTime = CACurrentMediaTime()
         endTime = startTime! + 4
-        self.mainSpinnerIV.rotate()
+        self.mainSpinnerIV.startRotating()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let saveMenu = UIMenu(title: "", children: [
+            UIAction(title: "Change Spinner", image: UIImage(systemName: "arrow.triangle.2.circlepath")) { action in
+                    print("Change Spinner")
+                },
+            UIAction(title: "Sound") { action in
+                    //Rename Menu Child Selected
+                },
+        ])
+        
+        
+        let item = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), menu: saveMenu)
+        item.tintColor = UIColor(named: "Cream")
+        self.navigationItem.rightBarButtonItem = item
+        
+        
         mainSpinnerIV.image = UIImage(named: "Christmas Tree")
+        spinBtn.layer.cornerRadius = 40
+        
     }
-
+    
     @objc func stopSpin(displaylink: CADisplayLink){
 
-        guard
-            let endTime = endTime,
-            let startTime = startTime
-           else {
+        guard let endTime = endTime
+        else {
              return
          }
 
@@ -52,13 +68,12 @@ class PlaySpinnerController: UIViewController {
 
 extension UIImageView{
     
-    func rotate() {
+    func startRotating() {
         let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.toValue = NSNumber(value: Double.pi * 2)
         rotation.duration = Double.random(in: 0.3..<0.4)
         rotation.isCumulative = true
         rotation.fillMode = .forwards
-        rotation.isRemovedOnCompletion = false
         rotation.repeatCount = Float.greatestFiniteMagnitude
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
