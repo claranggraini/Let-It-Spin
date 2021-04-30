@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -83,6 +83,7 @@
                         <outlet property="boardLbl" destination="oCh-Tf-icH" id="tgd-GM-kX5"/>
                         <outlet property="mainSpinnerIV" destination="bVQ-e7-lBm" id="rsT-Vu-DPr"/>
                         <outlet property="spinBtn" destination="xMJ-cx-hTf" id="Stp-Yn-xTr"/>
+                        <segue destination="KDR-R5-pHt" kind="show" identifier="SpinnerSegue" id="COE-Sd-OQS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -92,13 +93,49 @@
         <!--Spinner Controller-->
         <scene sceneID="mmd-3b-Yhi">
             <objects>
-                <viewController id="KDR-R5-pHt" customClass="SpinnerController" customModule="Let_It_Spin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpinnerStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KDR-R5-pHt" customClass="SpinnerController" customModule="Let_It_Spin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxA-ul-UZg">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNI-uk-kN4">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
+                                <color key="backgroundColor" name="Green"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="uST-SK-WF8">
+                                    <size key="itemSize" width="150" height="188"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="40" maxX="20" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zxu-WA-Rty">
+                                        <rect key="frame" x="28" y="48" width="150" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k3x-ue-yYq">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="KDR-R5-pHt" id="2PQ-cq-gAx"/>
+                                    <outlet property="delegate" destination="KDR-R5-pHt" id="1IJ-GF-pfd"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QTx-3F-aqQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Green"/>
+                        <constraints>
+                            <constraint firstItem="eNI-uk-kN4" firstAttribute="leading" secondItem="QTx-3F-aqQ" secondAttribute="leading" id="4kF-ud-mWa"/>
+                            <constraint firstItem="eNI-uk-kN4" firstAttribute="top" secondItem="QTx-3F-aqQ" secondAttribute="top" id="Sq4-NK-xRC"/>
+                            <constraint firstItem="QTx-3F-aqQ" firstAttribute="trailing" secondItem="eNI-uk-kN4" secondAttribute="trailing" id="V2L-M0-pu0"/>
+                            <constraint firstItem="QTx-3F-aqQ" firstAttribute="bottom" secondItem="eNI-uk-kN4" secondAttribute="bottom" id="woP-j8-Tor"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="clU-wJ-8u4"/>
+                    <connections>
+                        <outlet property="spinnerCV" destination="eNI-uk-kN4" id="Pzc-je-HMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt3-SD-fOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,6 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ihp-en-Wgn">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Cream"/>
                         <color key="barTintColor" name="Green"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="Cream"/>
@@ -142,8 +180,5 @@
         <namedColor name="Red">
             <color red="0.66299998760223389" green="0.10199999809265137" blue="0.13699999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

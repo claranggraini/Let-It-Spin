@@ -16,6 +16,8 @@
 		7839341B263ABCAE00EE5E39 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839341A263ABCAE00EE5E39 /* Spinner.swift */; };
 		7839341F263ABD1100EE5E39 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839341E263ABD1100EE5E39 /* Challenge.swift */; };
 		78393422263AC2D500EE5E39 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393421263AC2D500EE5E39 /* SpinnerController.swift */; };
+		78393429263BFF9700EE5E39 /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393427263BFF9700EE5E39 /* SpinnerCell.swift */; };
+		7839342A263BFF9700EE5E39 /* SpinnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78393428263BFF9700EE5E39 /* SpinnerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7839341A263ABCAE00EE5E39 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		7839341E263ABD1100EE5E39 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		78393421263AC2D500EE5E39 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
+		78393427263BFF9700EE5E39 /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
+		78393428263BFF9700EE5E39 /* SpinnerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +66,15 @@
 		78393401263AB72500EE5E39 /* Let It Spin */ = {
 			isa = PBXGroup;
 			children = (
+				78393424263BFF3000EE5E39 /* Spinners */,
 				78393419263ABC9200EE5E39 /* Model */,
 				78393402263AB72500EE5E39 /* AppDelegate.swift */,
 				78393404263AB72500EE5E39 /* SceneDelegate.swift */,
-				78393406263AB72500EE5E39 /* PlaySpinnerController.swift */,
 				78393408263AB72500EE5E39 /* Main.storyboard */,
 				7839340B263AB72600EE5E39 /* Assets.xcassets */,
 				7839340D263AB72600EE5E39 /* LaunchScreen.storyboard */,
+				78393406263AB72500EE5E39 /* PlaySpinnerController.swift */,
 				78393410263AB72600EE5E39 /* Info.plist */,
-				78393421263AC2D500EE5E39 /* SpinnerController.swift */,
 			);
 			path = "Let It Spin";
 			sourceTree = "<group>";
@@ -82,6 +86,24 @@
 				7839341E263ABD1100EE5E39 /* Challenge.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		78393424263BFF3000EE5E39 /* Spinners */ = {
+			isa = PBXGroup;
+			children = (
+				78393421263AC2D500EE5E39 /* SpinnerController.swift */,
+				78393425263BFF4000EE5E39 /* Spinner Cell */,
+			);
+			path = Spinners;
+			sourceTree = "<group>";
+		};
+		78393425263BFF4000EE5E39 /* Spinner Cell */ = {
+			isa = PBXGroup;
+			children = (
+				78393427263BFF9700EE5E39 /* SpinnerCell.swift */,
+				78393428263BFF9700EE5E39 /* SpinnerCell.xib */,
+			);
+			path = "Spinner Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +166,7 @@
 				7839340F263AB72600EE5E39 /* LaunchScreen.storyboard in Resources */,
 				7839340C263AB72600EE5E39 /* Assets.xcassets in Resources */,
 				7839340A263AB72500EE5E39 /* Main.storyboard in Resources */,
+				7839342A263BFF9700EE5E39 /* SpinnerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78393429263BFF9700EE5E39 /* SpinnerCell.swift in Sources */,
 				78393407263AB72500EE5E39 /* PlaySpinnerController.swift in Sources */,
 				78393422263AC2D500EE5E39 /* SpinnerController.swift in Sources */,
 				78393403263AB72500EE5E39 /* AppDelegate.swift in Sources */,

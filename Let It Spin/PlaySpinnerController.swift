@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaySpinnerController: UIViewController {
+class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
 
     @IBOutlet weak var boardIV: UIImageView!
     @IBOutlet weak var boardLbl: UILabel!
@@ -31,7 +31,9 @@ class PlaySpinnerController: UIViewController {
         
         let saveMenu = UIMenu(title: "", children: [
             UIAction(title: "Change Spinner", image: UIImage(systemName: "arrow.triangle.2.circlepath")) { action in
-                    print("Change Spinner")
+                
+                self.performSegue(withIdentifier: "SpinnerSegue", sender: self)
+                
                 },
             UIAction(title: "Sound") { action in
                     //Rename Menu Child Selected
@@ -64,6 +66,15 @@ class PlaySpinnerController: UIViewController {
             spinBtn.isEnabled = true
         }
     }
+    
+    func didChangeSpinner(spinner: Spinner) {
+        mainSpinnerIV.image = spinner.image
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SpinnerController
+        vc.delegate = self
+    }
+    
 }
 
 extension UIImageView{
@@ -84,3 +95,4 @@ extension UIImageView{
         self.layer.transform = transform
     }
 }
+
