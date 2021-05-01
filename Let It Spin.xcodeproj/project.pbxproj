@@ -15,7 +15,6 @@
 		7839340C263AB72600EE5E39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7839340B263AB72600EE5E39 /* Assets.xcassets */; };
 		7839340F263AB72600EE5E39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7839340D263AB72600EE5E39 /* LaunchScreen.storyboard */; };
 		7839341B263ABCAE00EE5E39 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839341A263ABCAE00EE5E39 /* Spinner.swift */; };
-		7839341F263ABD1100EE5E39 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839341E263ABD1100EE5E39 /* Challenge.swift */; };
 		78393422263AC2D500EE5E39 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393421263AC2D500EE5E39 /* SpinnerController.swift */; };
 		78393429263BFF9700EE5E39 /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393427263BFF9700EE5E39 /* SpinnerCell.swift */; };
 		7839342A263BFF9700EE5E39 /* SpinnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78393428263BFF9700EE5E39 /* SpinnerCell.xib */; };
@@ -32,7 +31,6 @@
 		7839340E263AB72600EE5E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78393410263AB72600EE5E39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7839341A263ABCAE00EE5E39 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		7839341E263ABD1100EE5E39 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		78393421263AC2D500EE5E39 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		78393427263BFF9700EE5E39 /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		78393428263BFF9700EE5E39 /* SpinnerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerCell.xib; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				7839341A263ABCAE00EE5E39 /* Spinner.swift */,
-				7839341E263ABD1100EE5E39 /* Challenge.swift */,
 				7836ED48263D066B002EBA10 /* Database.swift */,
 			);
 			path = Model;
@@ -187,7 +184,6 @@
 				78393405263AB72500EE5E39 /* SceneDelegate.swift in Sources */,
 				7839341B263ABCAE00EE5E39 /* Spinner.swift in Sources */,
 				7836ED49263D066B002EBA10 /* Database.swift in Sources */,
-				7839341F263ABD1100EE5E39 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
