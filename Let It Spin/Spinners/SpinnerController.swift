@@ -15,22 +15,16 @@ class SpinnerController: UIViewController {
 
     @IBOutlet weak var spinnerCV: UICollectionView!
     var prevSpinner: SpinnerCell?
-    var index = 0
+    var index = Database.shared.getSelectedSpinner()
     weak var delegate: SpinnerControllerDelegate?
     let spinnerCellId = "SpinnerCell"
-    let spinners = Spinner.getData()
+    let spinners = Database.shared.getSpinners()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nibCell = UINib(nibName: spinnerCellId, bundle: nil)
         spinnerCV.register(nibCell, forCellWithReuseIdentifier: spinnerCellId)
         spinnerCV.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5){ [self] in
-            prevSpinner = spinnerCV.cellForItem(at: IndexPath.init(row: 0, section: 0)) as! SpinnerCell
-            spinnerCV.reloadData()
-        }
-                                           
-        
     }
     
 }
@@ -38,8 +32,7 @@ class SpinnerController: UIViewController {
 extension SpinnerController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        Spinner.getData().count
-        
+        spinners.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,6 +56,7 @@ extension SpinnerController: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didChangeSpinner(spinner: spinners[indexPath.row])
         index = indexPath.row
+        Database.shared.setSelectedSpinner(index: index)
         spinnerCV.reloadData()
     }
 }
