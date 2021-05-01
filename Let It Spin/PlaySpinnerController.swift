@@ -15,7 +15,9 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
     @IBOutlet weak var spinBtn: UIButton!
     
     var startTime: CFTimeInterval?, endTime: CFTimeInterval?
-    
+    var challenges = Database.shared.getChallenges()
+    var spinners = Database.shared.getSpinners()
+    let savedSpinner = Database.shared.getSelectedSpinner()
     @IBAction func spinBtnOnClicked(_ sender: Any) {
         spinBtn.alpha = 0.5
         spinBtn.isEnabled = false
@@ -45,8 +47,15 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
         item.tintColor = UIColor(named: "Cream")
         self.navigationItem.rightBarButtonItem = item
         
+        boardLbl.adjustsFontSizeToFitWidth = true
+        boardLbl.minimumScaleFactor = 0.2
         
-        mainSpinnerIV.image = UIImage(named: "Christmas Tree")
+        
+//        boardLbl.text = challenges[random]
+        
+//        spinners.remove(at: random)
+        
+        mainSpinnerIV.image = spinners[savedSpinner].image
         spinBtn.layer.cornerRadius = 40
         
     }
@@ -60,6 +69,13 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
 
         if CACurrentMediaTime() > endTime{
             mainSpinnerIV.stopRotating()
+            
+            if challenges.isEmpty{
+                challenges = Database.shared.getChallenges()
+            }
+            let random = randomChallenge()
+            boardLbl.text = challenges[random]
+            challenges.remove(at: random)
             displaylink.isPaused = true
             displaylink.invalidate()
             spinBtn.alpha = 1
@@ -70,9 +86,14 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
     func didChangeSpinner(spinner: Spinner) {
         mainSpinnerIV.image = spinner.image
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SpinnerController
         vc.delegate = self
+    }
+    
+    func randomChallenge() -> Int{
+        return Int.random(in: 0..<challenges.count)
     }
     
 }
@@ -93,6 +114,7 @@ extension UIImageView{
         let transform = self.layer.presentation()!.transform
         self.layer.removeAllAnimations()
         self.layer.transform = transform
+        
     }
 }
 

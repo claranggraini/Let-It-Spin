@@ -23,17 +23,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIU-jf-pXr">
                                 <rect key="frame" x="46" y="67" width="298" height="126"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-Tf-icH">
-                                        <rect key="frame" x="88.333333333333343" y="34.333333333333343" width="121.33333333333334" height="57.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-Tf-icH">
+                                        <rect key="frame" x="8" y="8" width="282" height="110"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="Cream"/>
                                 <constraints>
-                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="centerX" secondItem="qIU-jf-pXr" secondAttribute="centerX" id="WfJ-R4-9on"/>
-                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="centerY" secondItem="qIU-jf-pXr" secondAttribute="centerY" id="aV9-hl-m8p"/>
+                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="leading" secondItem="qIU-jf-pXr" secondAttribute="leading" constant="8" id="Uxk-Oi-WyC"/>
+                                    <constraint firstAttribute="trailing" secondItem="oCh-Tf-icH" secondAttribute="trailing" constant="8" id="X5b-Fu-VdH"/>
+                                    <constraint firstAttribute="bottom" secondItem="oCh-Tf-icH" secondAttribute="bottom" constant="8" id="sLT-2c-OlI"/>
+                                    <constraint firstItem="oCh-Tf-icH" firstAttribute="top" secondItem="qIU-jf-pXr" secondAttribute="top" constant="8" id="wfY-hV-ues"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Christmas Tree" translatesAutoresizingMaskIntoConstraints="NO" id="bVQ-e7-lBm">
