@@ -22,6 +22,7 @@ class Database{
     
     init() {
         seedSpinners()
+        seedChallenges()
     }
     
     func seedSpinners(){
@@ -31,6 +32,13 @@ class Database{
         spinners.append(Spinner(image: UIImage(named: "Santa's Hat")))
         spinners.append(Spinner(image: UIImage(named: "Candy Cane")))
         spinners.append(Spinner(image: UIImage(named: "Stocking")))
+    }
+    
+    func seedChallenges(){
+        challenges.append("Sing All I Want For Christmas Is You by Mariah Carey sjdahjashdasjd hjsahdhsajdhajs sadkjaskd sajdkjaskdk ksajdkjasd asdah asdjsdha sdkjsakjd ghhghghg hghghhhg hgghhg kasjdk")
+        challenges.append("Laugh like a Santa Claus throughout the game")
+        challenges.append("Say 5 good things about the person to your left")
+        challenges.append("Wish 3 good things for the person to your right")
     }
     
     func getSelectedSpinner() -> Int{
@@ -49,10 +57,10 @@ class Database{
     }
     
     func getChallenges() -> [String]{
-        challenges.append("Sing All I Want For Christmas Is You by Mariah Carey")
-        challenges.append("Laugh like a Santa Claus throughout the game")
-        challenges.append("Say 5 good things about the person to your left")
-        challenges.append("Wish 3 good things for the person to your right")
         return challenges
+    }
+    
+    func insertChallenge(challenge: String){
+        challenges.append(challenge)
     }
 }

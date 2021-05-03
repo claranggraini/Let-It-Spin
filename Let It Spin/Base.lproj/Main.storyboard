@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FTn-g1-78M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FTn-g1-78M">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,10 +23,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIU-jf-pXr">
                                 <rect key="frame" x="46" y="67" width="298" height="126"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-Tf-icH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-Tf-icH">
                                         <rect key="frame" x="8" y="8" width="282" height="110"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -86,6 +86,7 @@
                         <outlet property="mainSpinnerIV" destination="bVQ-e7-lBm" id="rsT-Vu-DPr"/>
                         <outlet property="spinBtn" destination="xMJ-cx-hTf" id="Stp-Yn-xTr"/>
                         <segue destination="KDR-R5-pHt" kind="show" identifier="SpinnerSegue" id="COE-Sd-OQS"/>
+                        <segue destination="UZW-C0-FbB" kind="show" identifier="ChallengeSegue" id="tJ2-m6-kqo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNI-uk-kN4">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNI-uk-kN4">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
                                 <color key="backgroundColor" name="Green"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="uST-SK-WF8">
@@ -142,6 +143,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt3-SD-fOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2035" y="94"/>
+        </scene>
+        <!--Challenges Controller-->
+        <scene sceneID="U0K-B3-tnb">
+            <objects>
+                <viewController id="UZW-C0-FbB" customClass="ChallengesController" customModule="Let_It_Spin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zy8-9i-ySY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="134" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sC0-Ab-qV2">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
+                                <color key="backgroundColor" name="Green"/>
+                                <edgeInsets key="layoutMargins" top="30" left="30" bottom="8" right="8"/>
+                                <color key="sectionIndexBackgroundColor" name="Green"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UZW-C0-FbB" id="wV3-YH-xJx"/>
+                                    <outlet property="delegate" destination="UZW-C0-FbB" id="b8r-4U-A9S"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lb5-P3-SpE"/>
+                        <color key="backgroundColor" name="Green"/>
+                        <constraints>
+                            <constraint firstItem="Lb5-P3-SpE" firstAttribute="bottom" secondItem="sC0-Ab-qV2" secondAttribute="bottom" id="fKg-ZH-eZ0"/>
+                            <constraint firstItem="Lb5-P3-SpE" firstAttribute="trailing" secondItem="sC0-Ab-qV2" secondAttribute="trailing" id="m3f-6b-fsz"/>
+                            <constraint firstItem="sC0-Ab-qV2" firstAttribute="leading" secondItem="Lb5-P3-SpE" secondAttribute="leading" id="okL-4K-Xx9"/>
+                            <constraint firstItem="sC0-Ab-qV2" firstAttribute="top" secondItem="Lb5-P3-SpE" secondAttribute="top" id="vWQ-7j-ieS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sgD-VJ-EEN"/>
+                    <connections>
+                        <outlet property="challengesTV" destination="sC0-Ab-qV2" id="MpL-pQ-Sp2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5g-zs-8Ab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034" y="919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LM1-LH-Sdp">

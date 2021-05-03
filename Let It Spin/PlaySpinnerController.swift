@@ -32,14 +32,17 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
         super.viewDidLoad()
         
         let saveMenu = UIMenu(title: "", children: [
+            UIAction(title: "Challenges", image: UIImage(systemName: "scroll")){ action in
+                self.performSegue(withIdentifier: "ChallengeSegue", sender: self)
+            },
             UIAction(title: "Change Spinner", image: UIImage(systemName: "arrow.triangle.2.circlepath")) { action in
                 
                 self.performSegue(withIdentifier: "SpinnerSegue", sender: self)
                 
-                },
+            },
             UIAction(title: "Sound") { action in
-                    //Rename Menu Child Selected
-                },
+                
+            },
         ])
         
         
@@ -49,11 +52,6 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
         
         boardLbl.adjustsFontSizeToFitWidth = true
         boardLbl.minimumScaleFactor = 0.2
-        
-        
-//        boardLbl.text = challenges[random]
-        
-//        spinners.remove(at: random)
         
         mainSpinnerIV.image = spinners[savedSpinner].image
         spinBtn.layer.cornerRadius = 40
@@ -88,8 +86,11 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SpinnerController
-        vc.delegate = self
+        if(segue.identifier == "SpinnerSegue"){
+            let vc = segue.destination as! SpinnerController
+            vc.delegate = self
+        }
+        
     }
     
     func randomChallenge() -> Int{

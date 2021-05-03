@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7836ED49263D066B002EBA10 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED48263D066B002EBA10 /* Database.swift */; };
+		7836ED4F263D27E0002EBA10 /* ChallengesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED4E263D27E0002EBA10 /* ChallengesController.swift */; };
+		7836ED5C263D2835002EBA10 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED5A263D2835002EBA10 /* ChallengeCell.swift */; };
+		7836ED5D263D2835002EBA10 /* ChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7836ED5B263D2835002EBA10 /* ChallengeCell.xib */; };
 		78393403263AB72500EE5E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393402263AB72500EE5E39 /* AppDelegate.swift */; };
 		78393405263AB72500EE5E39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393404263AB72500EE5E39 /* SceneDelegate.swift */; };
 		78393407263AB72500EE5E39 /* PlaySpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393406263AB72500EE5E39 /* PlaySpinnerController.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		7836ED48263D066B002EBA10 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		7836ED4E263D27E0002EBA10 /* ChallengesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesController.swift; sourceTree = "<group>"; };
+		7836ED5A263D2835002EBA10 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
+		7836ED5B263D2835002EBA10 /* ChallengeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeCell.xib; sourceTree = "<group>"; };
 		783933FF263AB72500EE5E39 /* Let It Spin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let It Spin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78393402263AB72500EE5E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78393404263AB72500EE5E39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7836ED4D263D27AB002EBA10 /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				7836ED52263D27F1002EBA10 /* Challenge Cell */,
+				7836ED4E263D27E0002EBA10 /* ChallengesController.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		7836ED52263D27F1002EBA10 /* Challenge Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7836ED5A263D2835002EBA10 /* ChallengeCell.swift */,
+				7836ED5B263D2835002EBA10 /* ChallengeCell.xib */,
+			);
+			path = "Challenge Cell";
+			sourceTree = "<group>";
+		};
 		783933F6263AB72500EE5E39 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +90,7 @@
 		78393401263AB72500EE5E39 /* Let It Spin */ = {
 			isa = PBXGroup;
 			children = (
+				7836ED4D263D27AB002EBA10 /* Challenges */,
 				78393424263BFF3000EE5E39 /* Spinners */,
 				78393419263ABC9200EE5E39 /* Model */,
 				78393402263AB72500EE5E39 /* AppDelegate.swift */,
@@ -163,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7836ED5D263D2835002EBA10 /* ChallengeCell.xib in Resources */,
 				7839340F263AB72600EE5E39 /* LaunchScreen.storyboard in Resources */,
 				7839340C263AB72600EE5E39 /* Assets.xcassets in Resources */,
 				7839340A263AB72500EE5E39 /* Main.storyboard in Resources */,
@@ -181,9 +207,11 @@
 				78393407263AB72500EE5E39 /* PlaySpinnerController.swift in Sources */,
 				78393422263AC2D500EE5E39 /* SpinnerController.swift in Sources */,
 				78393403263AB72500EE5E39 /* AppDelegate.swift in Sources */,
+				7836ED5C263D2835002EBA10 /* ChallengeCell.swift in Sources */,
 				78393405263AB72500EE5E39 /* SceneDelegate.swift in Sources */,
 				7839341B263ABCAE00EE5E39 /* Spinner.swift in Sources */,
 				7836ED49263D066B002EBA10 /* Database.swift in Sources */,
+				7836ED4F263D27E0002EBA10 /* ChallengesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

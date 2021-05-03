@@ -22,6 +22,7 @@ class SpinnerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Spinners"
         let nibCell = UINib(nibName: spinnerCellId, bundle: nil)
         spinnerCV.register(nibCell, forCellWithReuseIdentifier: spinnerCellId)
         spinnerCV.reloadData()
