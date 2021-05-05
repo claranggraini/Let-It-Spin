@@ -21,6 +21,7 @@
 		78393422263AC2D500EE5E39 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393421263AC2D500EE5E39 /* SpinnerController.swift */; };
 		78393429263BFF9700EE5E39 /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78393427263BFF9700EE5E39 /* SpinnerCell.swift */; };
 		7839342A263BFF9700EE5E39 /* SpinnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78393428263BFF9700EE5E39 /* SpinnerCell.xib */; };
+		784E7DF926402EBD000A8DDA /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E7DF826402EBD000A8DDA /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		78393421263AC2D500EE5E39 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		78393427263BFF9700EE5E39 /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		78393428263BFF9700EE5E39 /* SpinnerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerCell.xib; sourceTree = "<group>"; };
+		784E7DF826402EBD000A8DDA /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		78393401263AB72500EE5E39 /* Let It Spin */ = {
 			isa = PBXGroup;
 			children = (
+				784E7DF726402E9F000A8DDA /* Music */,
 				7836ED4D263D27AB002EBA10 /* Challenges */,
 				78393424263BFF3000EE5E39 /* Spinners */,
 				78393419263ABC9200EE5E39 /* Model */,
@@ -129,6 +132,14 @@
 				78393428263BFF9700EE5E39 /* SpinnerCell.xib */,
 			);
 			path = "Spinner Cell";
+			sourceTree = "<group>";
+		};
+		784E7DF726402E9F000A8DDA /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				784E7DF826402EBD000A8DDA /* MusicPlayer.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 				78393405263AB72500EE5E39 /* SceneDelegate.swift in Sources */,
 				7839341B263ABCAE00EE5E39 /* Spinner.swift in Sources */,
 				7836ED49263D066B002EBA10 /* Database.swift in Sources */,
+				784E7DF926402EBD000A8DDA /* MusicPlayer.swift in Sources */,
 				7836ED4F263D27E0002EBA10 /* ChallengesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

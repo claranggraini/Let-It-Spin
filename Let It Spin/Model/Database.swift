@@ -22,7 +22,6 @@ class Database{
     
     init() {
         seedSpinners()
-        seedChallenges()
     }
     
     func seedSpinners(){
@@ -35,10 +34,14 @@ class Database{
     }
     
     func seedChallenges(){
-        challenges.append("Sing All I Want For Christmas Is You by Mariah Carey sjdahjashdasjd hjsahdhsajdhajs sadkjaskd sajdkjaskdk ksajdkjasd asdah asdjsdha sdkjsakjd ghhghghg hghghhhg hgghhg kasjdk")
+        
+        challenges.append("Sing All I Want For Christmas Is You by Mariah Carey")
         challenges.append("Laugh like a Santa Claus throughout the game")
         challenges.append("Say 5 good things about the person to your left")
         challenges.append("Wish 3 good things for the person to your right")
+        let key: userDefaultsKey = .challenges
+        defaults.set(challenges, forKey: key.rawValue)
+        
     }
     
     func getSelectedSpinner() -> Int{
@@ -57,10 +60,26 @@ class Database{
     }
     
     func getChallenges() -> [String]{
+        let key: userDefaultsKey = .challenges
+        guard let unwrappedChallenges = defaults.stringArray(forKey: key.rawValue) else { return [String]()}
+        challenges = unwrappedChallenges
         return challenges
     }
     
     func insertChallenge(challenge: String){
         challenges.append(challenge)
+        saveChallenges(challenges: challenges)
+    }
+    
+    func deleteChallenges(selectedChallenges: [Int]){
+        for i in (0..<selectedChallenges.count).reversed(){
+            challenges.remove(at: selectedChallenges[i])
+        }
+        saveChallenges(challenges: challenges)
+    }
+    
+    func saveChallenges(challenges: [String]){
+        let key: userDefaultsKey = .challenges
+        defaults.set(challenges, forKey: key.rawValue)
     }
 }

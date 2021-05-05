@@ -10,7 +10,6 @@ import UIKit
 class ChallengesController: UIViewController {
 
     var challenges = Database.shared.getChallenges()
-//    let size = challenges.count-1
     var longPressGesture:UILongPressGestureRecognizer? = nil
     var selectedChallenges:[Int] = []
     let challengeCellId = "ChallengeCell"
@@ -30,7 +29,7 @@ class ChallengesController: UIViewController {
         let nibCell = UINib(nibName: challengeCellId, bundle: nil)
         challengesTV.register(nibCell, forCellReuseIdentifier: challengeCellId)
         challengesTV.reloadData()
-        let item = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(setupView))
+        let item = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addChallenge))
         navigationItem.rightBarButtonItem = item
     }
     
@@ -50,10 +49,11 @@ class ChallengesController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @objc func setupView(){
+    @objc func addChallenge(){
         challenges.append("")
+        
         challengesTV.reloadData()
-         
+        scrollToBottom()
         guard let unwrappedGesture = longPressGesture else{ return}
         unwrappedGesture.isEnabled = false
         
@@ -83,10 +83,16 @@ class ChallengesController: UIViewController {
         guard let unwrappedGesture = longPressGesture else{ return}
         unwrappedGesture.isEnabled = true
         challengesTV.reloadData()
-        let item = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(setupView))
+        let item = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addChallenge))
         navigationItem.rightBarButtonItem = item
     }
     
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: 0, section: self.challenges.count-1)
+            self.challengesTV.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
 }
 extension ChallengesController: UITableViewDelegate, UITableViewDataSource ,UITextViewDelegate, UIGestureRecognizerDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,16 +105,20 @@ extension ChallengesController: UITableViewDelegate, UITableViewDataSource ,UITe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = challengesTV.dequeueReusableCell(withIdentifier: challengeCellId, for: indexPath) as! ChallengeCell
-        
         cell.challengeTxtView.text = challenges[indexPath.section]
-        if cell.challengeTxtView.text.count > 67{
+        if !checkSelectedChallenge(index: indexPath.section){
+            cell.challengeCellView.layer.borderWidth = 0
+        }else{
+            cell.challengeCellView.layer.borderWidth = 10
             
+        }
+        if cell.challengeTxtView.text.count > 67{
             cell.challengeTxtView.centerYAnchor.constraint(equalTo: cell.challengeTxtView.centerYAnchor).isActive = false
             cell.challengeTxtView.frame = CGRect(x: 0, y: 0, width: 264, height: 134)
             cell.challengeTxtView.resizeFont()
         }
         
-        if cell.challengeTxtView.text == ""{
+        else if cell.challengeTxtView.text == ""{
             cell.challengeTxtView.tintColor = UIColor.black
             cell.challengeTxtView.isEditable = true
             cell.challengeTxtView.becomeFirstResponder()
@@ -136,20 +146,28 @@ extension ChallengesController: UITableViewDelegate, UITableViewDataSource ,UITe
         let cell = tableView.cellForRow(at: indexPath) as! ChallengeCell
         
         if cell.challengeCellView.layer.borderWidth.isEqual(to: 10.0){
-            
+            cell.isSelected = false
             cell.challengeCellView.layer.borderWidth = 0
             deleteSelectedChallenge(index: indexPath.section)
-            
             if selectedChallenges.isEmpty{
                 navigationItem.rightBarButtonItem = nil
-                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(setupView))
+                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addChallenge))
                 challengesTV.allowsSelection = false
             }
         }else{
             selectedChallenges.append(indexPath.section)
-            print("selected challenges: \(indexPath.section)")
-            cell.challengeCellView.layer.borderWidth = 10.0
+            cell.challengeCellView.layer.borderWidth = 10
+            cell.challengeCellView.layer.borderColor = UIColor(named: "Red")?.cgColor
         }
+    }
+    
+    func checkSelectedChallenge(index: Int)->Bool{
+        for i in 0..<selectedChallenges.count{
+            if selectedChallenges[i] == index{
+                return true
+            }
+        }
+        return false
     }
     
     func deleteSelectedChallenge(index: Int){
@@ -183,7 +201,7 @@ extension ChallengesController: UITableViewDelegate, UITableViewDataSource ,UITe
             
             
             let touchPoint = gestureRecognizer.location(in: self.challengesTV)
-            if let indexPath = challengesTV.indexPathForRow(at: touchPoint) {
+            if (challengesTV.indexPathForRow(at: touchPoint) != nil) {
                 selectCellFromPoint(point: touchPoint)
             }
         }
@@ -199,32 +217,28 @@ extension ChallengesController: UITableViewDelegate, UITableViewDataSource ,UITe
         }
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-//        textView.resizeFont()
-    }
-    
     @objc func deleteChallenges(){
         selectedChallenges.sort()
         
-        for i in (0..<selectedChallenges.count).reversed(){
-            challenges.remove(at: selectedChallenges[i])
-        }
-        selectedChallenges.removeAll()
+        Database.shared.deleteChallenges(selectedChallenges: selectedChallenges)
         
+        selectedChallenges.removeAll()
+        challenges = Database.shared.getChallenges()
         challengesTV.reloadData()
         navigationItem.rightBarButtonItem = nil
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(setupView))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addChallenge))
         challengesTV.allowsSelection = false
         clearSelection()
     }
     func clearSelection(){
         let listCell = challengesTV.visibleCells as! [ChallengeCell]
         for cell in listCell{
+           
             cell.challengeCellView.layer.borderWidth = 0
+            cell.setSelected(false, animated: true)
+            challengesTV.reloadData()
         }
     }
-
 }
 
 

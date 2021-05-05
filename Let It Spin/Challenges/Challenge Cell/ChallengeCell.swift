@@ -16,6 +16,8 @@ class ChallengeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         challengeCellView.layer.cornerRadius = 15
+        challengeCellView.layer.borderWidth = 0
+        isSelected = false
         
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
