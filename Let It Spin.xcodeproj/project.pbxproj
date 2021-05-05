@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78104D7126429EAE007731B8 /* Jingle Bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78104D7026429EAE007731B8 /* Jingle Bells.mp3 */; };
 		7836ED49263D066B002EBA10 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED48263D066B002EBA10 /* Database.swift */; };
 		7836ED4F263D27E0002EBA10 /* ChallengesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED4E263D27E0002EBA10 /* ChallengesController.swift */; };
 		7836ED5C263D2835002EBA10 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836ED5A263D2835002EBA10 /* ChallengeCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78104D7026429EAE007731B8 /* Jingle Bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jingle Bells.mp3"; sourceTree = "<group>"; };
 		7836ED48263D066B002EBA10 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7836ED4E263D27E0002EBA10 /* ChallengesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesController.swift; sourceTree = "<group>"; };
 		7836ED5A263D2835002EBA10 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		784E7DF726402E9F000A8DDA /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				78104D7026429EAE007731B8 /* Jingle Bells.mp3 */,
 				784E7DF826402EBD000A8DDA /* MusicPlayer.swift */,
 			);
 			path = Music;
@@ -204,6 +207,7 @@
 				7839340C263AB72600EE5E39 /* Assets.xcassets in Resources */,
 				7839340A263AB72500EE5E39 /* Main.storyboard in Resources */,
 				7839342A263BFF9700EE5E39 /* SpinnerCell.xib in Resources */,
+				78104D7126429EAE007731B8 /* Jingle Bells.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

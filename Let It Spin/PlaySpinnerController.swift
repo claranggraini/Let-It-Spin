@@ -31,7 +31,7 @@ class PlaySpinnerController: UIViewController, SpinnerControllerDelegate{
         spinBtn.isEnabled = false
         
         startTime = CACurrentMediaTime()
-        endTime = startTime! + Double.random(in: 4.0..<5.0)
+        endTime = startTime! + 4.4
         self.mainSpinnerIV.startRotating()
        
     }
@@ -163,7 +163,7 @@ extension UIImageView{
         rotation.isCumulative = true
         rotation.fillMode = .forwards
         rotation.isRemovedOnCompletion = false
-        rotation.repeatCount = Float.random(in: 12.5..<13.7)
+        rotation.repeatCount = Float.random(in: 12.5..<13.5)
         self.layer.add(rotation, forKey: "rotationAnimation")
         
     }
